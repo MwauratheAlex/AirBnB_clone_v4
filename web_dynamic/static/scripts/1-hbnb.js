@@ -1,10 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
+  const amenities = {};
 
-  const amenities = {}
-
-  $("input").change(function() {
-    const amenityId = $(this).data("id");
-    const amenityName = $(this).data("name");
+  $('input').change(function () {
+    const amenityId = $(this).data('id');
+    const amenityName = $(this).data('name');
 
     if ($(this).is(':checked')) {
       amenities[amenityId] = amenityName;
@@ -12,11 +11,9 @@ $(document).ready(function() {
       delete amenities[amenityId];
     }
 
-    let amenitiesStr = "";
-    Object.values(amenities).map((amenity) => amenitiesStr += `${amenity}, `);
+    let amenitiesStr = '';
+    Object.values(amenities).map((amenity) => { amenitiesStr += `${amenity}, `; return 0; });
 
-    $("#selected-amenities").text(amenitiesStr);
-
-  })
-
-})
+    $('#selected-amenities').text(amenitiesStr);
+  });
+});
